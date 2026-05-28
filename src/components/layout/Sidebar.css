@@ -1,0 +1,146 @@
+/* --- Estructura y Transiciones --- */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background-color: #ffffff; /* Fondo blanco limpio */
+  color: #1f2937; /* Texto oscuro */
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  border-right: 1px solid #e5e7eb; /* Línea divisoria sutil */
+  transition: width 0.3s ease; /* Animación suave al encogerse */
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.02);
+}
+
+/* Estado Colapsado */
+.sidebar.collapsed {
+  width: 80px;
+}
+
+/* --- Cabecera --- */
+.sidebar-header {
+  padding: 20px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #f3f4f6;
+  min-height: 80px;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  font-size: 1.8rem;
+  color: #4d44df; /* Azul del proyecto */
+}
+
+.brand-text h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.brand-text .subtitle {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+/* Botón Colapsar */
+.toggle-btn {
+  background: #f3f4f6;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #4b5563;
+  transition: all 0.2s ease;
+}
+
+.toggle-btn:hover {
+  background: #e5e7eb;
+  color: #1f2937;
+}
+
+.sidebar.collapsed .sidebar-header {
+  justify-content: center;
+}
+
+.sidebar.collapsed .toggle-btn {
+  position: absolute;
+  right: -16px;
+  top: 25px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+}
+
+/* --- Navegación --- */
+.sidebar-nav {
+  flex: 1;
+  padding: 20px 12px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.nav-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin: 15px 0 8px 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 15px;
+  color: #4b5563; /* Gris neutro */
+  text-decoration: none;
+  border-radius: 10px;
+  margin-bottom: 4px;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Hover: Fondo gris claro muy sutil */
+.nav-item:hover:not(.disabled) {
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+/* Estado Activo: Fondo azul clarito y texto azul fuerte */
+.nav-item.active {
+  background-color: #e0e7ff;
+  color: #4338ca;
+  font-weight: 600;
+}
+
+.nav-item i {
+  font-size: 1.2rem;
+  min-width: 24px;
+  text-align: center;
+}
+
+.sidebar.collapsed .nav-item {
+  justify-content: center;
+  padding: 12px 0;
+}
+
+.nav-item.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
