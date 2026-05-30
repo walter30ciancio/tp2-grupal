@@ -11,11 +11,19 @@ export default function PerfilJulio() {
     { titulo: "El Señor de los Anillos", img: "/img/integrantes/julio/peliculas/el_señor_de_los_anillos.png" }
   ];
 
-  // Agregamos los links que tenías en el TP1
   const misAlbumes = [
     { titulo: "Iron Maiden", img: "/img/integrantes/julio/canciones/Powerslave.png", url: "https://www.youtube.com/watch?v=Mw-o_cSdqmI" },
     { titulo: "Nightwish", img: "/img/integrantes/julio/canciones/Nightwish.png", url: "https://www.youtube.com/watch?v=n1G5WiMoRjw" },
     { titulo: "Deep Purple", img: "/img/integrantes/julio/canciones/Deep Purple.png", url: "https://www.youtube.com/watch?v=G7GERh0sQzY" }
+  ];
+
+const techStack = [
+    { nombre: "HTML5/CSS3", icono: "fab fa-html5", color: "#e34f26" },
+    { nombre: "JavaScript", icono: "fab fa-js", color: "#f7df1e" },
+    { nombre: "React", icono: "fab fa-react", color: "#61dafb" },
+    { nombre: "Node.js", icono: "fab fa-node-js", color: "#339933" },
+    { nombre: "AWS Academy", icono: "fab fa-aws", color: "#ff9900" },
+    { nombre: "Excel/VBA", icono: "fas fa-file-excel", color: "#1d6f42" }
   ];
 
   return (
@@ -49,6 +57,18 @@ export default function PerfilJulio() {
             <ProgressBar skill="Análisis de Sistemas" percentage="95%" />
           </div>
         )}
+      </section>
+
+      <section className="profile-section">
+        <h2>Tech Stack</h2>
+        <div className="tech-stack-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '15px' }}>
+          {techStack.map((tech, index) => (
+            <div key={index} className="tech-item" style={{ textAlign: 'center', width: '80px' }}>
+              <i className={tech.icono} style={{ fontSize: '2rem', color: tech.color }}></i>
+              <p style={{ fontSize: '0.8rem', marginTop: '5px' }}>{tech.nombre}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="profile-section">
