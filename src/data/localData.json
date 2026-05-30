@@ -1,1 +1,142 @@
-{}
+[
+  {
+    "id": 1,
+    "nombre": "React",
+    "categoria": "Frontend",
+    "descripcion": "Biblioteca JavaScript orientada a componentes para construir interfaces de usuario eficientes.",
+    "imagen": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=150"
+  },
+  {
+    "id": 2,
+    "nombre": "Vue.js",
+    "categoria": "Frontend",
+    "descripcion": "Framework progresivo de JavaScript para la construcción de interfaces de usuario interactivas.",
+    "imagen": "https://images.unsplash.com/photo-1618477388954-7852f32655ec?w=150"
+  },
+  {
+    "id": 3,
+    "nombre": "Tailwind CSS",
+    "categoria": "Frontend",
+    "descripcion": "Framework de CSS basado en clases de utilidad para diseñar interfaces de forma rápida.",
+    "imagen": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=150"
+  },
+  {
+    "id": 4,
+    "nombre": "Bootstrap",
+    "categoria": "Frontend",
+    "descripcion": "Biblioteca de estilos e interfaz de código abierto para diseñar sitios web adaptables y móviles.",
+    "imagen": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=150"
+  },
+  {
+    "id": 5,
+    "nombre": "Sass",
+    "categoria": "Frontend",
+    "descripcion": "Preprocesador CSS que añade potencia, variables y anidamiento a los estilos tradicionales.",
+    "imagen": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=150"
+  },
+  {
+    "id": 6,
+    "nombre": "Node.js",
+    "categoria": "Backend",
+    "descripcion": "Entorno de ejecución para JavaScript construido con el motor V8 de Chrome para el lado del servidor.",
+    "imagen": "https://images.unsplash.com/photo-1547658719-da2b51169166?w=150"
+  },
+  {
+    "id": 7,
+    "nombre": "Express",
+    "categoria": "Backend",
+    "descripcion": "Framework web minimalista y flexible para Node.js que proporciona un conjunto robusto de funciones.",
+    "imagen": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=150"
+  },
+  {
+    "id": 8,
+    "nombre": "Python",
+    "categoria": "Backend",
+    "descripcion": "Lenguaje de programación versátil, conocido por su sintaxis clara y gran ecosistema de librerías.",
+    "imagen": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=150"
+  },
+  {
+    "id": 9,
+    "nombre": "Django",
+    "categoria": "Backend",
+    "descripcion": "Framework web de alto nivel para Python que fomenta el desarrollo rápido y un diseño limpio.",
+    "imagen": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=150"
+  },
+  {
+    "id": 10,
+    "nombre": "Java",
+    "categoria": "Backend",
+    "descripcion": "Lenguaje de programación orientado a objetos ampliamente utilizado para aplicaciones empresariales.",
+    "imagen": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=150"
+  },
+  {
+    "id": 11,
+    "nombre": "PostgreSQL",
+    "categoria": "Bases de Datos",
+    "descripcion": "Sistema de gestión de bases de datos relacionales potente, de código abierto y con enfoque en extensibilidad.",
+    "imagen": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=150"
+  },
+  {
+    "id": 12,
+    "nombre": "MongoDB",
+    "categoria": "Bases de Datos",
+    "descripcion": "Base de datos NoSQL basada en documentos que ofrece gran escalabilidad y flexibilidad para datos flexibles.",
+    "imagen": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=150"
+  },
+  {
+    "id": 13,
+    "nombre": "MySQL",
+    "categoria": "Bases de Datos",
+    "descripcion": "Uno de los sistemas de bases de datos relacionales más populares del mundo, ideal para aplicaciones web.",
+    "imagen": "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=150"
+  },
+  {
+    "id": 14,
+    "nombre": "Redis",
+    "categoria": "Bases de Datos",
+    "descripcion": "Almacenamiento de estructura de datos en memoria, utilizado principalmente como base de datos de caché rápido.",
+    "imagen": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=150"
+  },
+  {
+    "id": 15,
+    "nombre": "SQLite",
+    "categoria": "Bases de Datos",
+    "descripcion": "Motor de base de datos SQL ligero y autocontenido, ideal para almacenamiento local en aplicaciones móviles y de escritorio.",
+    "imagen": "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?w=150"
+  },
+  {
+    "id": 16,
+    "nombre": "Git",
+    "categoria": "Herramientas Dev & Cloud",
+    "descripcion": "Sistema de control de versiones distribuido diseñado para rastrear cambios en el código fuente de forma ágil.",
+    "imagen": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=150"
+  },
+  {
+    "id": 17,
+    "nombre": "Docker",
+    "categoria": "Herramientas Dev & Cloud",
+    "descripcion": "Plataforma de contenedorización que permite empaquetar aplicaciones y sus dependencias en entornos aislados.",
+    "imagen": "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=150"
+  },
+  {
+    "id": 18,
+    "nombre": "AWS",
+    "categoria": "Herramientas Dev & Cloud",
+    "descripcion": "Plataforma integral de computación en la nube que ofrece infraestructura escalable y servicios administrados.",
+    "imagen": "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=150"
+  },
+  {
+    "id": 19,
+    "nombre": "GitHub Actions",
+    "categoria": "Herramientas Dev & Cloud",
+    "descripcion": "Herramienta de automatización y CI/CD integrada para compilar, probar y desplegar proyectos directo desde GitHub.",
+    "imagen": "https://images.unsplash.com/photo-1618401479427-c8ef9465fbe1?w=150"
+  },
+  {
+    "id": 20,
+    "nombre": "Kubernetes",
+    "categoria": "Herramientas Dev & Cloud",
+    "descripcion": "Sistema de código abierto para la automatización del despliegue, escalado y manejo de contenedores de aplicaciones.",
+    "imagen": "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=150"
+  }
+]

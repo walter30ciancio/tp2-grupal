@@ -1,0 +1,132 @@
+/* --- Contenedor Principal --- */
+.explorer-container {
+  padding: 10px;
+}
+
+.explorer-subtitle {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin-bottom: 25px;
+}
+
+/* --- Panel de Controles (Buscador y Select) --- */
+.search-controls {
+  margin-bottom: 30px;
+  display: flex;
+  gap: 15px;
+}
+
+.search-input {
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  flex: 1;
+  font-size: 0.95rem;
+  background-color: #ffffff;
+  color: #1f2937;
+  transition: border-color 0.2s;
+}
+
+.search-input:focus, .category-select:focus {
+  outline: none;
+  border-color: #4d44df; /* El azul del proyecto */
+}
+
+.category-select {
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  font-size: 0.95rem;
+  background-color: #ffffff;
+  color: #1f2937;
+  cursor: pointer;
+}
+
+/* --- Grilla de Resultados --- */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+/* --- Tarjetas (Tech Cards) --- */
+.tech-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tech-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.card-image-container {
+  width: 100%;
+  height: 140px;
+  background-color: #f3f4f6;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.category-tag {
+  font-size: 0.75rem;
+  background-color: #e0e7ff;
+  color: #4338ca;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.tech-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.2rem;
+  color: #111827;
+}
+
+.tech-card p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #4b5563;
+  line-height: 1.5;
+  animation: fadeInUp 0.5s ease backwards;
+}
+
+/* --- Estado Sin Resultados --- */
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: #9ca3af;
+  font-size: 1.1rem;
+}
+
+/* Animación para que las tarjetas aparezcan suavemente */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tech-card {
+  /* ... (mantené lo que ya tenías y agregá esta línea): */
+  animation: fadeInUp 0.5s ease backwards;
+}
