@@ -64,6 +64,9 @@
 
 .toggle-btn { background: #333; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; margin-bottom: 15px; }
 
+/* Colores de hover para los íconos propios de Guillermina */
+.tech-icon.db:hover       { color: #00758f; }
+.tech-icon.security:hover { color: #ef4444; }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
