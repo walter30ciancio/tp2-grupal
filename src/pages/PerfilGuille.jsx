@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import ProgressBar from '../components/profile/ProgressBar';
+import ProjectCarousel from '../components/profile/ProjectCarousel';
 import '../assets/GuilleProfile.css';
 
-// Carrusel propio con los proyectos de Guillermina
-function CarruselGuillermina() {
-  const projects = [
+export default function PerfilGuille() {
+  const [showSkills, setShowSkills] = useState(true);
+
+  const proyectosGuille = [
     {
       id: 1,
       title: 'Página Web con HTML y JavaScript',
@@ -24,32 +26,6 @@ function CarruselGuillermina() {
       img: '⚽',
     },
   ];
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextSlide = () =>
-    setCurrentIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
-  const prevSlide = () =>
-    setCurrentIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
-
-  return (
-    <div className="carousel-container">
-      <button className="carousel-btn" onClick={prevSlide}>◀</button>
-      <div className="carousel-slide">
-        <div className="carousel-icon">{projects[currentIndex].img}</div>
-        <h3>{projects[currentIndex].title}</h3>
-        <p>{projects[currentIndex].desc}</p>
-        <div style={{ marginTop: '12px', color: '#aaa', fontSize: '0.85rem' }}>
-          {currentIndex + 1} / {projects.length}
-        </div>
-      </div>
-      <button className="carousel-btn" onClick={nextSlide}>▶</button>
-    </div>
-  );
-}
-
-export default function PerfilGuille() {
-  const [showSkills, setShowSkills] = useState(true);
 
   return (
     <div className="integrante-page">
@@ -98,7 +74,7 @@ export default function PerfilGuille() {
 
       <section className="profile-section">
         <h2>Proyectos Destacados</h2>
-        <CarruselGuillermina />
+        <ProjectCarousel projects={proyectosGuille} />
       </section>
 
       <section className="profile-section social-media-section">
