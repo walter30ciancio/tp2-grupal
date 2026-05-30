@@ -216,7 +216,6 @@ export default function Bitacora() {
                 'Filtros por categoría en la galería',
                 'Perfil individual Guillermina',
                 'Bitácora y Árbol de Renderizado',
-                'README.md completo',
               ]}
             />
           </div>
