@@ -60,6 +60,10 @@ export default function Sidebar() {
           <i className="fas fa-cloud-download-alt"></i>
           {!isCollapsed && <span>API Externa</span>}
         </NavLink>
+        <NavLink to="/galeria" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>
+          <i className="fas fa-images"></i>
+          {!isCollapsed && <span>Galería</span>}
+        </NavLink>
 
         {!isCollapsed && <p className="nav-label">Documentación</p>}
         <NavLink to="/bitacora" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>

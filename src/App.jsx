@@ -7,6 +7,7 @@ import PerfilWalter from './pages/PerfilWalter';
 import DataExplorer from './pages/DataExplorer';
 import ApiIntegration from './pages/ApiIntegration';
 import Bitacora from './pages/Bitacora';
+import Galeria from './pages/Galeria';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="perfil-walter" element={<PerfilWalter />} />
           <Route path="explorador-datos" element={<DataExplorer />} />
           <Route path="api-externa" element={<ApiIntegration />} />
+          <Route path="galeria" element={<Galeria />} />
           <Route path="bitacora" element={<Bitacora />} />
         </Route>
       </Routes>
