@@ -6,6 +6,12 @@ import '../assets/WalterProfile.css';
 export default function PerfilWalter() {
   const [showSkills, setShowSkills] = useState(true);
 
+  const proyectosWalter = [
+      { id: 1, title: "E-Commerce React", desc: "Plataforma de ventas con carrito y pasarela de pagos.", img: "🛒" },
+      { id: 2, title: "API REST Node.js", desc: "Backend escalable para gestión de usuarios.", img: "⚙️" },
+      { id: 3, title: "Dashboard AWS", desc: "Panel de control para monitorear métricas en la nube.", img: "☁️" }
+    ];
+
   return (
     <div className="integrante-page">
       <header className="profile-header">
@@ -53,7 +59,8 @@ export default function PerfilWalter() {
 
       <section className="profile-section">
         <h2>Proyectos Destacados</h2>
-        <ProjectCarousel />
+        {/* Ahora le pasamos explícitamente sus proyectos */}
+        <ProjectCarousel projects={proyectosWalter} />
       </section>
 
       <section className="profile-section social-media-section">

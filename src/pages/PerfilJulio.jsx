@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ProgressBar from '../components/profile/ProgressBar';
+import ProjectCarousel from '../components/profile/ProjectCarousel';
 import '../assets/JulioProfile.css';
 
 export default function PerfilJulio() {
@@ -24,6 +25,27 @@ const techStack = [
     { nombre: "Node.js", icono: "fab fa-node-js", color: "#339933" },
     { nombre: "AWS Academy", icono: "fab fa-aws", color: "#ff9900" },
     { nombre: "Excel/VBA", icono: "fas fa-file-excel", color: "#1d6f42" }
+  ];
+
+  const misProyectos = [
+    { 
+      id: 1, 
+      title: "Portfolio Profesional", 
+      desc: "Sitio web responsive desarrollado en React y desplegado en Vercel con integración de Git.", 
+      img: "🚀" 
+    },
+    { 
+      id: 2, 
+      title: "Automatización con VBA", 
+      desc: "Desarrollo de macros en Excel para optimización de procesos y análisis de grandes volúmenes de datos.", 
+      img: "📊" 
+    },
+    { 
+      id: 3, 
+      title: "Arquitectura Cloud", 
+      desc: "Análisis de costos y diseño de infraestructura escalable siguiendo las mejores prácticas de AWS.", 
+      img: "☁️" 
+    }
   ];
 
   return (
@@ -69,6 +91,11 @@ const techStack = [
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="profile-section">
+        <h2>Proyectos Destacados</h2>
+        <ProjectCarousel projects={misProyectos} />
       </section>
 
       <section className="profile-section">
