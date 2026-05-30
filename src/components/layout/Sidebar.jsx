@@ -46,10 +46,11 @@ export default function Sidebar() {
           <i className="fas fa-user"></i>
           {!isCollapsed && <span>Perfil Julio</span>}
         </div>
-        <div className="nav-item disabled" title="Próximamente">
-          <i className="fas fa-user"></i>
+
+        <NavLink to="/perfil-guillermina" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>
+          <i className="fas fa-user-astronaut"></i>
           {!isCollapsed && <span>Perfil Guillermina</span>}
-        </div>
+        </NavLink>
 
         {!isCollapsed && <p className="nav-label">Módulos TP2</p>}
         <NavLink to="/explorador-datos" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>
@@ -59,6 +60,10 @@ export default function Sidebar() {
         <NavLink to="/api-externa" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>
           <i className="fas fa-cloud-download-alt"></i>
           {!isCollapsed && <span>API Externa</span>}
+        </NavLink>
+        <NavLink to="/galeria" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>
+          <i className="fas fa-images"></i>
+          {!isCollapsed && <span>Galería</span>}
         </NavLink>
 
         {!isCollapsed && <p className="nav-label">Documentación</p>}

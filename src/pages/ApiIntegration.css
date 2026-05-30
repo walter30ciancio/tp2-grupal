@@ -1,0 +1,382 @@
+/* ══════════════════════════════════════════
+   ApiIntegration.css
+   Sigue la paleta del proyecto: #4d44df (azul principal)
+   ══════════════════════════════════════════ */
+
+.api-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  animation: fadeIn 0.5s ease-in-out;
+  color: #1f2937;
+}
+
+/* ── Hero / Encabezado ── */
+.api-hero {
+  background: linear-gradient(135deg, #4d44df 0%, #2a248c 100%);
+  border-radius: 16px;
+  padding: 32px 40px;
+  color: white;
+  box-shadow: 0 10px 15px -3px rgba(77, 68, 223, 0.3);
+}
+
+.api-hero h1 {
+  font-size: 2rem;
+  margin: 0 0 8px 0;
+  font-weight: 700;
+}
+
+.api-hero h1 i {
+  margin-right: 12px;
+}
+
+.api-hero p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 1.05rem;
+}
+
+/* ── Buscador ── */
+.search-bar {
+  display: flex;
+  gap: 12px;
+  background: #ffffff;
+  padding: 16px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+  border: 1px solid #f3f4f6;
+}
+
+.search-input-wrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  color: #9ca3af;
+  font-size: 0.95rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 12px 10px 36px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #1f2937;
+  transition: border-color 0.2s ease;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: #4d44df;
+  box-shadow: 0 0 0 3px rgba(77, 68, 223, 0.15);
+}
+
+.search-btn {
+  background: #4d44df;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.search-btn:hover {
+  background: #2a248c;
+  transform: translateY(-1px);
+}
+
+/* ── Info de resultados ── */
+.results-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 4px;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+/* ── Estados: Cargando y Error ── */
+.api-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  border-radius: 16px;
+  gap: 16px;
+  text-align: center;
+}
+
+.api-status.loading {
+  background: #f9fafb;
+  border: 1px solid #f3f4f6;
+}
+
+.api-status.loading p {
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+/* Spinner animado */
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #e0e7ff;
+  border-top-color: #4d44df;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.api-status.error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+}
+
+.api-status.error i {
+  font-size: 2.5rem;
+  color: #ef4444;
+}
+
+.error-hint {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* ── Grilla de Tarjetas ── */
+.repos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* ── RepoCard ── */
+.repo-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.25s ease;
+}
+
+.repo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px -5px rgba(77, 68, 223, 0.15);
+  border-color: #c7d2fe;
+}
+
+.repo-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.repo-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #e0e7ff;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.repo-owner {
+  margin: 0;
+  font-size: 0.78rem;
+  color: #6b7280;
+}
+
+.repo-name {
+  margin: 2px 0 0 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+  word-break: break-word;
+}
+
+.repo-description {
+  font-size: 0.88rem;
+  color: #4b5563;
+  line-height: 1.55;
+  margin: 0;
+  flex: 1; /* Hace que todas las cards tengan la misma altura */
+}
+
+.repo-stats {
+  display: flex;
+  gap: 14px;
+  font-size: 0.82rem;
+  color: #6b7280;
+}
+
+.repo-stats span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.repo-stats .fa-star { color: #f59e0b; }
+.repo-stats .fa-code-branch { color: #10b981; }
+.language-dot { font-size: 0.6rem; color: #4d44df; }
+
+.repo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #4d44df;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  margin-top: auto;
+  transition: color 0.2s ease;
+}
+
+.repo-link:hover {
+  color: #2a248c;
+}
+
+/* ── Paginación ── */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 0 20px;
+}
+
+.page-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #4d44df;
+  border: 1px solid #4d44df;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.page-btn:hover:not(:disabled) {
+  background: #4d44df;
+  color: white;
+}
+
+.page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  border-color: #e5e7eb;
+  color: #9ca3af;
+}
+
+.page-indicator {
+  font-weight: 600;
+  color: #4b5563;
+  min-width: 80px;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Estilos específicos para StackOverflow cards ── */
+.question-badge {
+  margin-bottom: 8px;
+}
+
+.badge-answered {
+  background: #d1fae5;
+  color: #065f46;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.badge-unanswered {
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.repo-card.answered {
+  border-left: 3px solid #10b981;
+}
+
+.question-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.45;
+  margin: 0 0 10px 0;
+}
+
+.question-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.question-tag {
+  background: #e0e7ff;
+  color: #3730a3;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.question-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.question-user {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.user-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.question-date {
+  font-size: 0.78rem;
+  color: #9ca3af;
+}
