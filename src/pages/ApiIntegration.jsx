@@ -1,161 +1,159 @@
 import React, { useState, useEffect } from 'react';
 import './ApiIntegration.css';
- 
-// ─────────────────────────────────────────────
 
-function RepoCard({ repo }) {
+// ─────────────────────────────────────────────
+// Componente: QuestionCard
+// Muestra una pregunta de StackOverflow
+// ─────────────────────────────────────────────
+function QuestionCard({ question }) {
+  // La API devuelve la fecha en formato Unix timestamp (segundos)
+  // lo convertimos a fecha legible
+  const fecha = new Date(question.creation_date * 1000).toLocaleDateString('es-AR', {
+    day: '2-digit', month: 'short', year: 'numeric'
+  });
+
   return (
-    <article className="repo-card">
-      {/* Encabezado: avatar del dueño + nombre del repo */}
-      <div className="repo-card-header">
-        <img
-          src={repo.owner.avatar_url}
-          alt={repo.owner.login}
-          className="repo-avatar"
-        />
-        <div>
-          <p className="repo-owner">{repo.owner.login}</p>
-          <h3 className="repo-name">{repo.name}</h3>
-        </div>
+    <article className={`repo-card ${question.is_answered ? 'answered' : ''}`}>
+
+      {/* Badge: respondida o sin respuesta */}
+      <div className="question-badge">
+        {question.is_answered
+          ? <span className="badge-answered"><i className="fas fa-check"></i> Respondida</span>
+          : <span className="badge-unanswered"><i className="fas fa-clock"></i> Sin respuesta</span>
+        }
       </div>
- 
-      {/* Descripción del repo (puede venir vacía de la API) */}
-      <p className="repo-description">
-        {repo.description || 'Sin descripción disponible.'}
-      </p>
- 
-      {/* Estadísticas: estrellas, forks, lenguaje */}
+
+      {/* Título de la pregunta */}
+      <h3 className="question-title">
+        {/* La API devuelve HTML entities, dangerouslySetInnerHTML las renderiza bien */}
+        <span dangerouslySetInnerHTML={{ __html: question.title }} />
+      </h3>
+
+      {/* Tags */}
+      <div className="question-tags">
+        {question.tags.slice(0, 4).map((tag) => (
+          <span key={tag} className="question-tag">{tag}</span>
+        ))}
+      </div>
+
+      {/* Estadísticas */}
       <div className="repo-stats">
-        <span title="Estrellas">
-          <i className="fas fa-star"></i> {repo.stargazers_count.toLocaleString()}
+        <span title="Votos">
+          <i className="fas fa-arrow-up"></i> {question.score}
         </span>
-        <span title="Forks">
-          <i className="fas fa-code-branch"></i> {repo.forks_count.toLocaleString()}
+        <span title="Respuestas">
+          <i className="fas fa-comments"></i> {question.answer_count}
         </span>
-        {repo.language && (
-          <span title="Lenguaje principal">
-            <i className="fas fa-circle language-dot"></i> {repo.language}
-          </span>
-        )}
+        <span title="Vistas">
+          <i className="fas fa-eye"></i> {question.view_count.toLocaleString()}
+        </span>
       </div>
- 
-      {/* Link al repositorio en GitHub */}
+
+      {/* Footer: usuario y fecha */}
+      <div className="question-footer">
+        <div className="question-user">
+          <img
+            src={question.owner.profile_image}
+            alt={question.owner.display_name}
+            className="user-avatar"
+            onError={(e) => { e.target.style.display = 'none'; }}
+          />
+          <span>{question.owner.display_name}</span>
+        </div>
+        <span className="question-date">{fecha}</span>
+      </div>
+
+      {/* Link */}
       <a
-        href={repo.html_url}
+        href={question.link}
         target="_blank"
         rel="noopener noreferrer"
         className="repo-link"
       >
-        Ver en GitHub <i className="fas fa-external-link-alt"></i>
+        Ver en StackOverflow <i className="fas fa-external-link-alt"></i>
       </a>
+
     </article>
   );
 }
- 
+
 // ─────────────────────────────────────────────
 // Componente Principal: ApiIntegration
-
+// ─────────────────────────────────────────────
 export default function ApiIntegration() {
-  // ── Estados ──────────────────────────────────
-  // repos: la lista de repositorios que devuelve la API
-  const [repos, setRepos] = useState([]);
- 
-  // query: el texto que el usuario escribe para buscar
-  const [query, setQuery] = useState('react');
- 
-  // inputValue: el valor del input (se separa de query para
-  // que la búsqueda solo se lance al hacer clic en Buscar)
+  const [questions, setQuestions]   = useState([]);
+  const [query, setQuery]           = useState('react');
   const [inputValue, setInputValue] = useState('react');
- 
-  // page: la página actual de resultados (empieza en 1)
-  const [page, setPage] = useState(1);
- 
-  // totalCount: cuántos resultados totales encontró la API
-  const [totalCount, setTotalCount] = useState(0);
- 
-  // loading: true mientras esperamos la respuesta de la API
-  const [loading, setLoading] = useState(false);
- 
-  // error: guarda el mensaje de error si algo falla
-  const [error, setError] = useState(null);
- 
-  // Cuántos repos mostramos por página
+  const [page, setPage]             = useState(1);
+  const [hasMore, setHasMore]       = useState(false);
+  const [loading, setLoading]       = useState(false);
+  const [error, setError]           = useState(null);
+
   const PER_PAGE = 9;
- 
-  // ── Efecto: se ejecuta cada vez que cambian "query" o "page" ──
-  // useEffect es como decirle a React: "cuando esto cambie, hacé esto"
+
   useEffect(() => {
-    // Función async adentro del useEffect (no podés poner async directamente)
-    const fetchRepos = async () => {
-      setLoading(true);   // Activamos el estado de carga
-      setError(null);     // Limpiamos errores anteriores
- 
+    const fetchQuestions = async () => {
+      setLoading(true);
+      setError(null);
+
       try {
-        // Construimos la URL con los parámetros de búsqueda y paginación
-        const url = `https://api.github.com/search/repositories?q=${encodeURIComponent(query)}&sort=stars&order=desc&per_page=${PER_PAGE}&page=${page}`;
- 
+        // La API de StackExchange permite buscar por tag o por texto libre
+        // Usamos /search/advanced para buscar por título (q=) o tag (tagged=)
+        const url = `https://api.stackexchange.com/2.3/search/advanced?order=desc&sort=votes&q=${encodeURIComponent(query)}&site=stackoverflow&pagesize=${PER_PAGE}&page=${page}&filter=!nNPvSNdWme`;
+
         const response = await fetch(url);
- 
-        // Si la respuesta no es exitosa (ej: rate limit), tiramos error
+
         if (!response.ok) {
           throw new Error(`Error ${response.status}: ${response.statusText}`);
         }
- 
+
         const data = await response.json();
- 
-        setRepos(data.items);                    // Guardamos los repos
-        setTotalCount(data.total_count);         // Guardamos el total
+
+        setQuestions(data.items || []);
+        // La API devuelve has_more para saber si hay más páginas
+        setHasMore(data.has_more);
+
       } catch (err) {
-        // Si algo falla, guardamos el mensaje de error
         setError(err.message);
-        setRepos([]);
+        setQuestions([]);
       } finally {
-        // Se ejecuta siempre, haya error o no
         setLoading(false);
       }
     };
- 
-    fetchRepos();
-  }, [query, page]); // ← El efecto se re-ejecuta cuando query o page cambian
- 
-  // ── Manejadores de eventos ────────────────────
-  // Se ejecuta cuando el usuario hace clic en "Buscar"
+
+    fetchQuestions();
+  }, [query, page]);
+
   const handleSearch = () => {
-    if (!inputValue.trim()) return; // Ignoramos búsquedas vacías
-    setPage(1);          // Volvemos a la página 1
-    setQuery(inputValue); // Actualizamos la query → dispara el useEffect
+    if (!inputValue.trim()) return;
+    setPage(1);
+    setQuery(inputValue);
   };
- 
-  // También buscamos si el usuario presiona Enter
+
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') handleSearch();
   };
- 
-  // Calculamos cuántas páginas hay en total
-  // (la API de GitHub limita a 1000 resultados máximo)
-  const totalPages = Math.min(Math.ceil(totalCount / PER_PAGE), 111);
- 
-  // ── Render ────────────────────────────────────
+
   return (
     <div className="api-page">
- 
-      {/* ── Encabezado ── */}
+
+      {/* ── Hero ── */}
       <header className="api-hero">
         <div className="api-hero-content">
           <h1>
-            <i className="fab fa-github"></i> Explorador de GitHub
+            <i className="fas fa-stack-overflow"></i> Explorador de StackOverflow
           </h1>
-          <p>Buscá repositorios públicos en tiempo real usando la API de GitHub</p>
+          <p>Buscá preguntas de programación en tiempo real usando la API de StackExchange</p>
         </div>
       </header>
- 
+
       {/* ── Buscador ── */}
       <div className="search-bar">
         <div className="search-input-wrapper">
           <i className="fas fa-search search-icon"></i>
           <input
             type="text"
-            placeholder="Buscar repositorios... (ej: python, machine-learning)"
+            placeholder="Buscar preguntas... (ej: react hooks, python list, css flexbox)"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={handleKeyDown}
@@ -166,49 +164,53 @@ export default function ApiIntegration() {
           Buscar
         </button>
       </div>
- 
-      {/* ── Resultados: info de cantidad y página ── */}
-      {!loading && !error && totalCount > 0 && (
+
+      {/* ── Info ── */}
+      {!loading && !error && questions.length > 0 && (
         <div className="results-info">
           <span>
-            <strong>{totalCount.toLocaleString()}</strong> resultados para{' '}
-            <em>"{query}"</em>
+            Mostrando resultados para <em>"{query}"</em> en StackOverflow
           </span>
-          <span>
-            Página <strong>{page}</strong> de <strong>{totalPages}</strong>
-          </span>
+          <span>Página <strong>{page}</strong></span>
         </div>
       )}
- 
-      {/* ── Estado: Cargando ── */}
+
+      {/* ── Cargando ── */}
       {loading && (
         <div className="api-status loading">
           <div className="spinner"></div>
-          <p>Buscando repositorios...</p>
+          <p>Buscando preguntas...</p>
         </div>
       )}
- 
-      {/* ── Estado: Error ── */}
+
+      {/* ── Error ── */}
       {error && (
         <div className="api-status error">
           <i className="fas fa-exclamation-triangle"></i>
           <p>Ocurrió un error: <strong>{error}</strong></p>
-          <p className="error-hint">La API de GitHub tiene un límite de solicitudes. Intentá de nuevo en unos minutos.</p>
+          <p className="error-hint">La API de StackExchange tiene un límite de solicitudes. Intentá de nuevo en unos minutos.</p>
         </div>
       )}
- 
-      {/* ── Grilla de Repositorios ── */}
+
+      {/* ── Sin resultados ── */}
+      {!loading && !error && questions.length === 0 && (
+        <div className="api-status loading">
+          <i className="fas fa-search" style={{ fontSize: '2rem', color: '#9ca3af' }}></i>
+          <p>No se encontraron preguntas para "<strong>{query}</strong>".</p>
+        </div>
+      )}
+
+      {/* ── Grilla ── */}
       {!loading && !error && (
         <div className="repos-grid">
-          {repos.map((repo) => (
-            // Le pasamos cada repo al componente RepoCard
-            <RepoCard key={repo.id} repo={repo} />
+          {questions.map((q) => (
+            <QuestionCard key={q.question_id} question={q} />
           ))}
         </div>
       )}
- 
+
       {/* ── Paginación ── */}
-      {!loading && !error && totalPages > 1 && (
+      {!loading && !error && questions.length > 0 && (
         <div className="pagination">
           <button
             className="page-btn"
@@ -217,21 +219,19 @@ export default function ApiIntegration() {
           >
             <i className="fas fa-chevron-left"></i> Anterior
           </button>
- 
-          <span className="page-indicator">
-            {page} / {totalPages}
-          </span>
- 
+
+          <span className="page-indicator">Página {page}</span>
+
           <button
             className="page-btn"
             onClick={() => setPage((p) => p + 1)}
-            disabled={page === totalPages}
+            disabled={!hasMore}
           >
             Siguiente <i className="fas fa-chevron-right"></i>
           </button>
         </div>
       )}
- 
+
     </div>
   );
 }
