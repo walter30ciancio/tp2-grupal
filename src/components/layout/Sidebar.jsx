@@ -42,10 +42,14 @@ export default function Sidebar() {
           {!isCollapsed && <span>Perfil Walter</span>}
         </NavLink>
         
-        <div className="nav-item disabled" title="Próximamente">
+        <NavLink 
+          to="/perfil-julio" 
+          className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}
+        >
           <i className="fas fa-user"></i>
           {!isCollapsed && <span>Perfil Julio</span>}
-        </div>
+        </NavLink>
+
         <div className="nav-item disabled" title="Próximamente">
           <i className="fas fa-user"></i>
           {!isCollapsed && <span>Perfil Guillermina</span>}
