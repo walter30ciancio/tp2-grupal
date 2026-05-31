@@ -30,7 +30,7 @@ export default function PerfilGuille() {
   return (
     <div className="integrante-page">
       <header className="profile-header">
-        <img src="public/img/conocenos/guillermina.png" alt="Guillermina Zen Cáffaro" className="profile-avatar" />
+        <img src="/img/conocenos/guillermina.png" alt="Guillermina Zen Cáffaro" className="profile-avatar" />
         <h1>Guillermina Zen Cáffaro</h1>
         <h2>Estudiante | Grupo N°25</h2>
       </header>

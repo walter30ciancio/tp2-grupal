@@ -56,7 +56,7 @@ export default function DashboardHome() {
             {teamMembers.map((member) => (
               <div className="team-profile-card" key={member.id}>
                 <div className="avatar-wrapper">
-                  {/* Se asume que las imágenes están en la carpeta public/img/conocenos/ */}
+                  {/* Se asume que las imágenes están en la carpeta /img/conocenos/ */}
                   <img src={member.img} alt={member.name} className="avatar-img" />
                 </div>
                 <h3>{member.name}</h3>

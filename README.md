@@ -183,6 +183,7 @@ El proyecto original (TP1) fue desarrollado con HTML, CSS y JavaScript vanilla, 
 ### Cambios y Mejoras Implementadas
 
 **Walter — Arquitectura Base, Navegación y Perfil 1**
+
 #### 1. Arquitectura Base y Configuración
 - Inicialización del Entorno: Configuración del proyecto utilizando **React + Vite** para optimizar los tiempos de carga y el entorno de desarrollo.
 - Estructura de Carpetas: Diseño de una arquitectura modular y escalable, dividiendo responsabilidades en `components`, `pages`, `assets` y `styles`.
@@ -202,13 +203,9 @@ El proyecto original (TP1) fue desarrollado con HTML, CSS y JavaScript vanilla, 
 
 **Julio — Panel Central, Datos Locales y Perfil 2**
 - Desarrollo del Perfil Individual con un Tech Stack interactivo mediante variables CSS y componentes de intereses personales.
-
 - Refactorización lógica del componente ProjectCarousel para que sea 100% reutilizable mediante el paso de props, permitiendo que cada integrante muestre sus proyectos específicos con la misma lógica.
-
 - Explorador de Datos JSON: Implementación del panel central para la visualización de datos locales, asegurando la persistencia y el filtrado eficiente de la información.
-
 - Gestión de control de versiones, resolución de conflictos de fusión (merges) durante la integración de las ramas del equipo en el repositorio principal.
-
 - Ajuste de diseño responsive y optimización de UI/UX utilizando unidades relativas (rem).
 
 **Guillermina — Integración API, Galería y Perfil 3**

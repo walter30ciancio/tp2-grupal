@@ -7,18 +7,18 @@ import './Galeria.css';
 // El parámetro sig= es solo para que cada URL sea única
 // ─────────────────────────────────────────────────────────
 const IMAGES = [
-  { id: 1,  src: 'public/img/galeria/dev1.jpg',   thumb: 'public/img/galeria/dev1.jpg',   title: 'Desarrollador',       category: 'Desarrollo' },
-  { id: 2,  src: 'public/img/galeria/design1.jpg', thumb: 'public/img/galeria/design1.jpg', title: 'Prototipado',           category: 'Diseño UX/UI' },
-  { id: 3,  src: 'public/img/galeria/project1.jpg',   thumb: 'public/img/galeria/project1.jpg',   title: 'Página Web de Pagos',   category: 'Proyectos' },
-  { id: 4,  src: 'public/img/galeria/dev2.jpg', thumb: 'public/img/galeria/dev2.jpg', title: 'Arquitectura',     category: 'Desarrollo' },
-  { id: 5,  src: 'public/img/galeria/design2.jpg', thumb: 'public/img/galeria/design2.jpg', title: 'Diseño Mobile First',        category: 'Diseño UX/UI' },
-  { id: 6,  src: 'public/img/galeria/dev3.jpg',    thumb: 'public/img/galeria/dev3.jpg',    title: 'Código',category: 'Desarrollo' },
-  { id: 7,  src: 'public/img/galeria/design3.jpg',     thumb: 'public/img/galeria/design3.jpg',     title: 'Maquetado Responsivo',      category: 'Diseño UX/UI' },
-  { id: 8,  src: 'public/img/galeria/dev4.jpg',  thumb: 'public/img/galeria/dev4.jpg',  title: 'Inteligencia Artificial',   category: 'Desarrollo' },
-  { id: 9,  src: 'public/img/galeria/project2.jpg',   thumb: 'public/img/galeria/project2.jpg',   title: 'Panel de Administración',       category: 'Proyectos' },
-  { id: 10, src: 'public/img/galeria/dev5.jpg',   thumb: 'public/img/galeria/dev5.jpg',   title: 'Equipo de Trabajo', category: 'Desarrollo' },
-  { id: 11, src: 'public/img/galeria/project3.jpg',thumb: 'public/img/galeria/project3.jpg',title: 'Agenda de Actividades',     category: 'Proyectos' },
-  { id: 12, src: 'public/img/galeria/design4.jpg', thumb: 'public/img/galeria/design4.jpg', title: 'Diseño de Interfaces',         category: 'Diseño UX/UI' },
+  { id: 1,  src: '/img/galeria/dev1.jpg',   thumb: '/img/galeria/dev1.jpg',   title: 'Desarrollador',       category: 'Desarrollo' },
+  { id: 2,  src: '/img/galeria/design1.jpg', thumb: '/img/galeria/design1.jpg', title: 'Prototipado',           category: 'Diseño UX/UI' },
+  { id: 3,  src: '/img/galeria/project1.jpg',   thumb: '/img/galeria/project1.jpg',   title: 'Página Web de Pagos',   category: 'Proyectos' },
+  { id: 4,  src: '/img/galeria/dev2.jpg', thumb: '/img/galeria/dev2.jpg', title: 'Arquitectura',     category: 'Desarrollo' },
+  { id: 5,  src: '/img/galeria/design2.jpg', thumb: '/img/galeria/design2.jpg', title: 'Diseño Mobile First',        category: 'Diseño UX/UI' },
+  { id: 6,  src: '/img/galeria/dev3.jpg',    thumb: '/img/galeria/dev3.jpg',    title: 'Código',category: 'Desarrollo' },
+  { id: 7,  src: '/img/galeria/design3.jpg',     thumb: '/img/galeria/design3.jpg',     title: 'Maquetado Responsivo',      category: 'Diseño UX/UI' },
+  { id: 8,  src: '/img/galeria/dev4.jpg',  thumb: '/img/galeria/dev4.jpg',  title: 'Inteligencia Artificial',   category: 'Desarrollo' },
+  { id: 9,  src: '/img/galeria/project2.jpg',   thumb: '/img/galeria/project2.jpg',   title: 'Panel de Administración',       category: 'Proyectos' },
+  { id: 10, src: '/img/galeria/dev5.jpg',   thumb: '/img/galeria/dev5.jpg',   title: 'Equipo de Trabajo', category: 'Desarrollo' },
+  { id: 11, src: '/img/galeria/project3.jpg',thumb: '/img/galeria/project3.jpg',title: 'Agenda de Actividades',     category: 'Proyectos' },
+  { id: 12, src: '/img/galeria/design4.jpg', thumb: '/img/galeria/design4.jpg', title: 'Diseño de Interfaces',         category: 'Diseño UX/UI' },
 ];
 
 const CATEGORIES = ['Todas', 'Desarrollo', 'Diseño UX/UI', 'Proyectos'];
