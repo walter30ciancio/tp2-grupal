@@ -1,6 +1,6 @@
 # 🖥️ Grupo N°25 — TP2 React | IFTS N°29
 
-> 🔗 **Deploy en Vercel:** _Próximamente_  
+> 🔗 **Deploy en Vercel:** https://tp2-grupal.vercel.app  
 > 📁 **Repositorio:** [github.com/walter30ciancio/tp2-grupal](https://github.com/walter30ciancio/tp2-grupal)
 
 ---
@@ -167,7 +167,7 @@ El proyecto utiliza Poppins como tipografía principal en toda la aplicación, c
 
 ## 🚀 Enlace al Proyecto Desplegado
 
-> 🔗 **Vercel:** _Próximamente — se actualizará antes de la entrega del 01/06/2026_
+> 🔗 **Vercel:** (https://tp2-grupal.vercel.app/)
 
 ---
 
