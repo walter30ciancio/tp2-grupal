@@ -81,14 +81,16 @@ const techStack = [
         )}
       </section>
 
-      <section className="profile-section">
+      <section className="profile-section tech-stack-section">
         <h2>Tech Stack</h2>
-        <div className="tech-stack-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '15px' }}>
+        <div className="tech-icons">
           {techStack.map((tech, index) => (
-            <div key={index} className="tech-item" style={{ textAlign: 'center', width: '80px' }}>
-              <i className={tech.icono} style={{ fontSize: '2rem', color: tech.color }}></i>
-              <p style={{ fontSize: '0.8rem', marginTop: '5px' }}>{tech.nombre}</p>
-            </div>
+            <i
+              key={index}
+              className={`${tech.icono} tech-icon-julio`}
+              title={tech.nombre}
+              style={{ '--hover-color': tech.color }}
+            ></i>
           ))}
         </div>
       </section>

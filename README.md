@@ -53,28 +53,33 @@ Este proyecto es la evolución del Trabajo Práctico 1, migrado de HTML/CSS/JS p
 tp2-grupal/
 ├── public/
 │   └── img/
+│       ├── capturas/           # Capturas de pantallas
 │       ├── conocenos/          # Fotos de perfil de cada integrante
 │       └── galeria/            # Imágenes de la galería interactiva
 ├── src/
 │   ├── assets/
 │   │   ├── WalterProfile.css   # Estilos compartidos de perfiles
-│   │   └── GuilleProfile.css   # Estilos específicos de Guillermina
+│   │   ├── GuilleProfile.css   # Estilos específicos de Guillermina
+│   │   └── JulioProfile.css    # Estilos específicos de Julio
 │   ├── components/
 │   │   ├── layout/
 │   │   │   ├── Layout.jsx      # Contenedor principal de la app
-│   │   │   ├── Layout.css
 │   │   │   ├── Sidebar.jsx     # Navegación lateral fija
 │   │   │   └── Sidebar.css
 │   │   └── profile/
 │   │       ├── ProgressBar.jsx     # Barra de progreso reutilizable
 │   │       ├── ProjectCarousel.jsx # Carrusel de proyectos
 │   │       └── SocialButton.jsx    # Botones de redes sociales
+│   ├── data/
+│   │   ├── localData.json          # Base de datos local en formato JSON para el explorador
 │   ├── pages/
 │   │   ├── DashboardHome.jsx   # Página principal con grilla de tarjetas
+│   │   ├── DashboardHome.css   # Estilos específicos del Dashboard principal
 │   │   ├── PerfilWalter.jsx    # Perfil de Walter
 │   │   ├── PerfilJulio.jsx     # Perfil de Julio
 │   │   ├── PerfilGuille.jsx    # Perfil de Guillermina
 │   │   ├── DataExplorer.jsx    # Explorador de datos JSON
+│   │   ├── DataExplorer.css    # Estilos específicos del explorador de datos
 │   │   ├── ApiIntegration.jsx  # Módulo de API StackOverflow
 │   │   ├── ApiIntegration.css
 │   │   ├── Galeria.jsx         # Galería interactiva con Lightbox
@@ -83,6 +88,7 @@ tp2-grupal/
 │   │   └── Bitacora.css
 │   ├── App.jsx                 # Componente raíz y configuración de rutas
 │   └── main.jsx                # Punto de entrada de la aplicación
+│   └── index.css
 ├── index.html
 ├── package.json
 ├── vite.config.js
@@ -180,7 +186,15 @@ El proyecto original (TP1) fue desarrollado con HTML, CSS y JavaScript vanilla, 
 - (Walter completa esta sección)
 
 **Julio — Panel Central, Datos Locales y Perfil 2**
-- _(Julio completa esta sección)_
+- Desarrollo del Perfil Individual con un Tech Stack interactivo mediante variables CSS y componentes de intereses personales.
+
+- Refactorización lógica del componente ProjectCarousel para que sea 100% reutilizable mediante el paso de props, permitiendo que cada integrante muestre sus proyectos específicos con la misma lógica.
+
+- Explorador de Datos JSON: Implementación del panel central para la visualización de datos locales, asegurando la persistencia y el filtrado eficiente de la información.
+
+- Gestión de control de versiones, resolución de conflictos de fusión (merges) durante la integración de las ramas del equipo en el repositorio principal.
+
+- Ajuste de diseño responsive y optimización de UI/UX utilizando unidades relativas (rem).
 
 **Guillermina — Integración API, Galería y Perfil 3**
 - Integración con API pública de StackOverflow con búsqueda y paginación

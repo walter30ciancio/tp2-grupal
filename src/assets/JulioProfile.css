@@ -136,3 +136,16 @@
 .social-btn.email:hover {
   background-color: #c5221f; /* Un rojo un poco más oscuro al pasar el mouse */
 }
+
+.tech-icon-julio {
+  font-size: 3rem;
+  color: #888888; /* Gris inicial */
+  transition: transform 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  margin: 0 15px;
+}
+
+.tech-icon-julio:hover {
+  transform: scale(1.2); /* Efecto Zoom */
+  color: var(--hover-color); /* Toma el color del JS */
+}
