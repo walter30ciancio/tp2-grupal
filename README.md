@@ -183,7 +183,22 @@ El proyecto original (TP1) fue desarrollado con HTML, CSS y JavaScript vanilla, 
 ### Cambios y Mejoras Implementadas
 
 **Walter — Arquitectura Base, Navegación y Perfil 1**
-- (Walter completa esta sección)
+#### 1. Arquitectura Base y Configuración
+- Inicialización del Entorno: Configuración del proyecto utilizando **React + Vite** para optimizar los tiempos de carga y el entorno de desarrollo.
+- Estructura de Carpetas: Diseño de una arquitectura modular y escalable, dividiendo responsabilidades en `components`, `pages`, `assets` y `styles`.
+- Despliegue en Producción: Configuración del archivo `vercel.json` con reglas de reescritura (`rewrites`) para garantizar el correcto funcionamiento del enrutador de React (SPA) en el entorno de **Vercel**.
+
+#### 2. Sistema de Navegación y Layout Global
+- Enrutamiento (React Router DOM): Implementación de la navegación principal del sitio en `App.jsx`, definiendo las rutas para el Dashboard, los perfiles individuales, el explorador de datos y la bitácora.
+- Layout Principal: Desarrollo de un componente envolvente que mantiene la estructura visual en todas las vistas.
+- Sidebar Moderna y Colapsable: Creación de una barra de navegación lateral interactiva (`Sidebar.jsx`). Se implementó el hook `useState` para permitir que el menú sea retráctil, mejorando la experiencia de usuario (UX) y liberando espacio visual en el panel central.
+
+#### 3. Desarrollo de Perfil 1 (UI/UX)
+- Página Personal (`PerfilWalter.jsx`): Maquetación y estilización de una landing page personal con información demográfica, objetivos y enlaces de contacto.
+- Componentes Reutilizables: 
+  - `ProgressBar.jsx`: Componente dinámico para visualizar el nivel de habilidades.
+  - `ProjectCarousel.jsx`: Galería interactiva con estado local para navegar entre proyectos destacados.
+- Tech Stack Animado: Integración de íconos vectoriales (FontAwesome) con animaciones CSS (hover, scale, color transitions) para destacar las tecnologías manejadas (HTML5, CSS3, JavaScript, React, Node.js, AWS).
 
 **Julio — Panel Central, Datos Locales y Perfil 2**
 - Desarrollo del Perfil Individual con un Tech Stack interactivo mediante variables CSS y componentes de intereses personales.
